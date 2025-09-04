@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import { FaBars, FaTimes, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-// import Logo from "../assets/logo.png";
+
 import { Link } from "react-scroll";
+import logo from '../assets/logo.jpeg'
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -14,7 +15,11 @@ const Navbar = () => {
     <div className=" w-full h-[80px] flex justify-between items-center px-4  text-gray-300 ">
       <div className="flex items-center justify-between w-full ">
         <div>
-          <p>this is for logo</p>
+          <img
+            src={logo}
+            alt="Image logo here"
+            className="w-[110px] bg-transparent mix-blend-lighten"
+          />
         </div>
 
         <ul className="hidden md:flex  px-4 py-4 w-[60vw] justify-around cursor-pointer">

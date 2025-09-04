@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-scroll";
 import { motion, useInView } from "framer-motion";
-
+import me from '../assets/me.jpg'
 const Home = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -56,7 +56,11 @@ const Home = () => {
             <div className="absolute bg-white w-[22%] h-[10%] -rotate-45 rounded-md shadow-[5px_5px_20px_rgb(204,214,246)]" />
           </div>
           <div className="flex justify-center items-center z-5">
-            <p>my image for portfolio</p>
+            <img
+              className="w-[40%] h-[20%] drop-shadow-2xl  rounded-md shadow-[5px_5px_20px_rgb(204,214,246)] "
+              src={me}
+              alt=""
+            />
           </div>
         </div>
       </div>
