@@ -1,25 +1,21 @@
 
 import {
-  logo,
+
   backend,
   creator,
   mobile,
   web,
-  github,
-  menu,
-  close,
+
   css,
   gearXpert,
   project2,
   project3,
   mysql,
   express,
-  aws,
+  
   mui,
   
-  gsap,
-  framer,
-  figma,
+  
   git,
   html,
   javascript,
@@ -28,7 +24,7 @@ import {
   reactjs,
   redux,
   tailwind,
-  threejs,
+
   firstTestimonial,
   secondTestimonial,
   thirdTestimonial,
@@ -48,8 +44,8 @@ export const navLinks = [
     
   },
   {
-    id: "work",
-    title: "Work",
+    id: "skill",
+    title: "Skill",
   },
   {
     id: "contact",
@@ -93,24 +89,7 @@ const technologies = [
     name: "React JS",
     icon: reactjs,
   },
-  {
-    name: "gsap",
-    icon: gsap,
-  },
-  {
-    name: "framer",
-    icon: framer,
-  },
-
- 
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
+  
   {
     name: "Redux Toolkit",
     icon: redux,
@@ -131,10 +110,7 @@ const technologies = [
     name: "Express Js",
     icon: express,
   },
-  {
-    name: "AWS",
-    icon: aws,
-  },
+  
   {
     name: "MongoDB",
     icon: mongodb,
