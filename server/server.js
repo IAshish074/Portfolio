@@ -67,10 +67,15 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.warn('⚠️  WARNING: EMAIL_USER or EMAIL_PASS not set. Contact form emails will fail.');
-  }
-});
+// Export the app for Vercel
+module.exports = app;
+
+// Only start the server if not running on Vercel
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.warn('⚠️  WARNING: EMAIL_USER or EMAIL_PASS not set. Contact form emails will fail.');
+    }
+  });
+}
