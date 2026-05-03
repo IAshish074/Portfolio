@@ -18,28 +18,28 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  live_demo_link,
 }) => {
   const cardRef = useRef(null);
 
   useEffect(() => {
     const el = cardRef.current;
 
-    // ScrollTrigger for animating project cards with stagger
     gsap.fromTo(
       el,
       {
         opacity: 0,
-        y: 100, // Start off-screen
+        y: 100,
       },
       {
         opacity: 1,
         y: 0,
         scrollTrigger: {
           trigger: el,
-          start: "top bottom",  // Trigger when the top of the element hits the bottom of the viewport
-          end: "top center",    // End when the top reaches the center of the viewport
-          scrub: true,          // Smoothly sync scroll and animation
-          markers: false,       // Set to `true` to see debug markers
+          start: "top bottom",
+          end: "top center",
+          scrub: true,
+          markers: false,
         },
       }
     );
@@ -59,13 +59,14 @@ const ProjectCard = ({
           <img
             src={image}
             alt="project_image"
-            className="w-full h-full object-cover object-left rounded-2xl"
+            className="w-full h-full object-cover object-top rounded-2xl"
           />
 
-          <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+          <div className="absolute inset-0 flex justify-end m-3 card-img_hover gap-2">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
               className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              title="Source Code"
             >
               <img
                 src={github}
@@ -91,6 +92,31 @@ const ProjectCard = ({
             </p>
           ))}
         </div>
+
+        {live_demo_link && (
+          <a
+            href={live_demo_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 bg-[#915EFF] hover:bg-[#7a4de0] text-white text-sm font-semibold py-2.5 px-5 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-[#915EFF]/25 hover:-translate-y-0.5"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              />
+            </svg>
+            Live Demo
+          </a>
+        )}
       </Tilt>
     </div>
   );
@@ -98,9 +124,8 @@ const ProjectCard = ({
 
 const Works = () => {
   useEffect(() => {
-    // Stagger effect for project cards
     gsap.fromTo(
-      ".project-card", // Select all project cards
+      ".project-card",
       {
         opacity: 0,
         y: 100,
@@ -108,13 +133,13 @@ const Works = () => {
       {
         opacity: 1,
         y: 0,
-        stagger: 0.1, // Stagger delay of 0.3 seconds between each card
+        stagger: 0.1,
         scrollTrigger: {
           trigger: ".works-container",
-          start: "top bottom",  // Trigger when the top of the container reaches the bottom
+          start: "top bottom",
           end: "top center",
           scrub: true,
-          markers: false, // Set to true to see debug markers
+          markers: false,
         },
       }
     );
@@ -133,7 +158,7 @@ const Works = () => {
         </p>
       </div>
 
-      <div className="works-container mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5">
+      <div className="works-container mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-7">
         {projects.map((project, index) => (
           <div key={`project-${index}`} className="project-card">
             <ProjectCard index={index} {...project} />
@@ -144,4 +169,4 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Works, "work");

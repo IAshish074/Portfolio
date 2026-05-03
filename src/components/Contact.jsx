@@ -1,6 +1,6 @@
-import  { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
+import axios from "axios";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
@@ -27,41 +27,35 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "Ashish Mishra",
-          from_email: form.email,
-          to_email: "amishrahsm@gmail.com",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+    try {
+      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
+      const response = await axios.post(`${API_URL}/api/contact`, {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      });
 
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
-        }
-      );
+      if (response.data.success) {
+        setLoading(false);
+        alert("Thank you. I will get back to you as soon as possible.");
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        setLoading(false);
+        alert("Ahh, something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
+      alert("Ahh, something went wrong. Please try again.");
+    }
   };
 
   return (

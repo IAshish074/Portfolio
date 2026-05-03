@@ -12,7 +12,10 @@ import css from "./tech/css.png";
 import figma from "./tech/figma.png";
 import gearXpert from './gearXpert.png';
 import project3 from './project3.webp';
-import project2 from './proj1.webp'
+import project2 from './proj1.webp';
+import hirehub from './hirehub.png';
+import calcom from './calcom.png';
+import drivenow from './drivenow.png'
 import mysql from './tech/mysql.png';
 import express from './tech/express.png';
 import aws from './tech/aws.png';
@@ -43,6 +46,9 @@ export {
   gearXpert,
   project2,
   project3,
+  hirehub,
+  calcom,
+  drivenow,
   mysql,
   express,
   aws,

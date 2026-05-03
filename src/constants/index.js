@@ -7,9 +7,9 @@ import {
   web,
 
   css,
-  gearXpert,
-  project2,
-  project3,
+  hirehub,
+  calcom,
+  drivenow,
   mysql,
   express,
   
@@ -41,7 +41,10 @@ export const navLinks = [
   {
     id: "about",
     title: "About",
-    
+  },
+  {
+    id: "work",
+    title: "Projects",
   },
   {
     id: "skill",
@@ -173,60 +176,43 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Tekisky Mart",
+    name: "HireHuB",
     description:
-      "Tekisky Mart is a web-based platform that allows users to search, explore, and purchase a wide range of products from various providers, offering a seamless and efficient shopping experience.",
+      "A full-stack job portal supporting 2 user roles (admin, job seeker) with secure role-based access, admin dashboard with full CRUD operations, JWT authentication, and responsive UI with 10+ reusable components.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
+      },
+      {
+        name: "node",
+        color: "green-text-gradient",
+      },
+      {
+        name: "mongodb",
+        color: "pink-text-gradient",
       },
       {
         name: "tailwind",
         color: "white-text-gradient",
       },
-      {
-        name: "node",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
- 
     ],
-    image: project2,
+    image: hirehub,
     source_code_link: "https://github.com/",
+    live_demo_link: "https://hire-hub-iota-ashen.vercel.app/login",
   },
   {
-    name: "GearXpert",
+    name: "Cal.com Clone",
     description:
-      "GearXpert is your ultimate destination for premium auto parts and accessories, Whether you're an automobile enthusiast or a professional, find everything you need to upgrade, repair.",
+      "A scheduling platform enabling users to manage availability across 7-day calendar slots, with conflict-free booking system eliminating double bookings and optimized backend logic using MySQL.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "emailJs",
+        name: "mysql",
         color: "green-text-gradient",
-      },
-      {
-        name: "Gsap",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: gearXpert,
-    source_code_link: "https://github.com/",
-  },
-  {
-    name: "GoGroove-Ecommerce",
-    description:
-      "Go-Groove is your ultimate destination for premium products across various categories. Whether you're a savvy shopper or a professional, enhance, and simplify your lifestyle—all in one place!",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
       },
       {
         name: "express",
@@ -234,15 +220,38 @@ const projects = [
       },
       {
         name: "node",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: calcom,
+    source_code_link: "https://github.com/",
+    live_demo_link: "https://cal-com-zeta.vercel.app/login",
+  },
+  {
+    name: "Drive Now",
+    description:
+      "A car rental platform supporting real-time booking and availability tracking, secure authentication handling 50+ active user sessions, and REST APIs improving booking workflow performance by ~30%.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "node",
         color: "green-text-gradient",
       },
       {
         name: "mongodb",
-        color: "green-text-gradient",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "white-text-gradient",
       },
     ],
-    image: project3,
+    image: drivenow,
     source_code_link: "https://github.com/",
+    live_demo_link: "https://drive-now-virid.vercel.app/",
   },
 ];
 
